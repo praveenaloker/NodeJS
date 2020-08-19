@@ -91,6 +91,17 @@ span.psw {
   font-weight: bold;
 }
 
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
 .close:hover,
 .close:focus {
   color: red;
@@ -132,30 +143,21 @@ span.psw {
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 <div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
+
+  <form class="modal-content animate" action="/controllers/authenticate-controller" method="POST">
+    
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
-
+ 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+    Email: <input type="text" placeholder="Enter Username" name="email">
+    Password: <input type="password" placeholder="Enter Password" name="password">
     </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
+       
+    <input type="submit" class="registerbtn" value="Submit">  
+    </form>
+  
 </div>
 
 <script>
@@ -172,3 +174,19 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
+
+<!-- <html>  
+<body>  
+ 
+<form action="/controllers/authenticate-controller" method="POST">  
+ 
+Email: <input type="text" name="email">
+Password: <input type="password" name="password">
+   
+<input type="submit" value="Submit">  
+</form>
+ 
+   
+</body>  
+</html> -->

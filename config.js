@@ -27,6 +27,7 @@ connection.connect((err)=>{
         console.log("Connection Failed !");
     }
 });
+module.exports = connection;
 
 // app.use(express.static(__dirname + '/public'));
 // app.get("/", (req, res) => {

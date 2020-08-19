@@ -1,13 +1,13 @@
 var Cryptr = require('cryptr');
 var express=require("express");
 var connection = require('./../config');
-// cryptr = new Cryptr('myTotalySecretKey');
+cryptr = new Cryptr('myTotalySecretKey');
  
 module.exports.register=function(req,res){
   var encryptedString = cryptr.encrypt(req.body.password);
     var users={
         "name":req.body.name,
-        "dob":req.body.dob,
+       // "dob":req.body.dob,
         "email":req.body.email,
         "password":encryptedString
     }
@@ -23,12 +23,14 @@ module.exports.register=function(req,res){
           })
         }
         else
-        {
-            res.json({
-              status:true,
-              data:results,
-              message:'user registered successfully'
-          })
+         {
+          //   res.json({
+          //     status:true,
+          //     data:results,
+          //     message:'user registered successfully'
+          // })
+
+         return res.redirect('/login');
         }
     });
 }
